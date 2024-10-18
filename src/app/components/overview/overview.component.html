@@ -5,13 +5,18 @@
     <p>Loading balancing circles...</p>
   </div>
 
-  <div (click)="navigateToDrillDown(circle.id)" *ngFor="let circle of balancingCircles" class="circle-card">
+  <div *ngFor="let circle of balancingCircles" class="circle-card" (click)="navigateToDrillDown(circle.id)">
     <mat-card>
       <mat-card-header>
         <mat-card-title>{{ circle.name }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p>Members: {{ circle.members.$values.length || 0 }}</p>
+        <ul *ngIf="circle.members.$values.length > 0">
+          <li *ngFor="let member of circle.members.$values">
+            {{ member.name }} ({{ member.type }} - {{ member.category }})
+          </li>
+        </ul>
       </mat-card-content>
     </mat-card>
   </div>
