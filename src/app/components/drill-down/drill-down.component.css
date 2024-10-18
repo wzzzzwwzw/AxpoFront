@@ -9,12 +9,12 @@
 
 .imbalance-card {
   background-color: #ffeeba; /* Light yellow for imbalance cards */
-  border-left: 5px solid #ffc107; /* Yellow accent */
+  border-left: 5px solid #ffc107;
 }
 
 /* Responsive styling */
 @media (max-width: 600px) {
   .drill-down-container, .overview-container {
-    padding: 10px; /* Reduce padding on smaller screens */
+    padding: 10px;
   }
 }

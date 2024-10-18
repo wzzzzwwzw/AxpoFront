@@ -2,7 +2,6 @@
   <h1>Balancing Circle Details</h1>
   <button mat-button (click)="navigateToOverview()">Back to Overview</button>
 
-
   <div *ngFor="let memberForecast of memberForecasts" class="member-forecast-card">
     <mat-card>
       <mat-card-header>
@@ -10,7 +9,7 @@
       </mat-card-header>
       <mat-card-content>
         <div *ngFor="let forecast of memberForecast.forecasts">
-          <p>{{ forecast.date }}: {{ forecast.forecast }}</p>
+          <p>{{ forecast.date | date: 'mediumDate' }}: {{ forecast.forecast }}</p>
         </div>
       </mat-card-content>
     </mat-card>
@@ -20,10 +19,13 @@
   <div *ngIf="imbalances.length > 0; else noImbalances">
     <mat-card *ngFor="let imbalance of imbalances" class="imbalance-card">
       <mat-card-header>
-        <mat-card-title>Imbalance on {{ imbalance.date }}</mat-card-title>
+        <mat-card-title>Imbalance on {{ imbalance.date | date: 'medium' }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>Amount: {{ imbalance.amount }}</p>
+        <p><strong>Amount:</strong> {{ imbalance.amount }}</p>
+        <p *ngIf="imbalance.details"><strong>Details:</strong> {{ imbalance.details }}</p>
+        <p *ngIf="imbalance.severity"><strong>Severity:</strong> {{ imbalance.severity }}</p>
+        <p *ngIf="imbalance.status"><strong>Status:</strong> {{ imbalance.status }}</p>
       </mat-card-content>
     </mat-card>
   </div>

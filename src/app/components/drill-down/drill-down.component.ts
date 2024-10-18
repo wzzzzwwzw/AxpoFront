@@ -12,14 +12,14 @@ import { BalancingCircle } from '../../models/BalancingCircle';
 export class DrillDownComponent implements OnInit {
   balancingCircleId!: number;
   memberForecasts: { memberName: string; forecasts: Forecast[] }[] = [];
-  imbalances: any[] = []; // Ensure this is an array
+  imbalances: any[] = [];
 
   constructor(private route: ActivatedRoute, private balancingService: BalancingService,private router: Router) {}
 
   ngOnInit(): void {
     this.balancingCircleId = Number(this.route.snapshot.paramMap.get('id'));
     this.loadMemberForecasts();
-    this.loadImbalances(); // Call to load imbalances
+    this.loadImbalances();
   }
 
   loadMemberForecasts(): void {
@@ -28,7 +28,7 @@ export class DrillDownComponent implements OnInit {
         const selectedCircle = circles.find(circle => circle.id === this.balancingCircleId);
 
         if (selectedCircle) {
-          const members = selectedCircle.members || []; // Use members directly
+          const members = selectedCircle.members || [];
 
           if (Array.isArray(members)) {
             const memberRequests = members.map(member =>
@@ -64,14 +64,13 @@ export class DrillDownComponent implements OnInit {
     this.balancingService.getImbalances(this.balancingCircleId).subscribe({
       next: (imbalances) => {
         console.log('Imbalances fetched:', imbalances);
-        // Assuming the response is an object, we will convert it to an array of key-value pairs
         if (imbalances && typeof imbalances === 'object') {
           this.imbalances = Object.entries(imbalances).map(([key, value]) => ({
             date: key,
             amount: value
           }));
         } else {
-          this.imbalances = []; // Set to an empty array if not an object
+          this.imbalances = [];
         }
       },
       error: (error) => {
@@ -81,6 +80,6 @@ export class DrillDownComponent implements OnInit {
   }
 
   navigateToOverview(): void {
-    this.router.navigate(['/overview']); // Assuming 'overview' is the correct route
+    this.router.navigate(['/overview']);
   }
 }

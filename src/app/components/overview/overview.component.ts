@@ -20,8 +20,8 @@ export class OverviewComponent implements OnInit {
   loadBalancingCircles(): void {
     this.balancingService.getBalancingCircles().subscribe({
       next: (data) => {
-        console.log('Data received from API:', data);  // Log the data
-        this.balancingCircles = Array.isArray(data) ? data : []; // Ensure it’s an array
+        console.log('Data received from API:', data);
+        this.balancingCircles = Array.isArray(data) ? data : [];
       },
       error: (error) => {
         console.error('Error fetching balancing circles', error);

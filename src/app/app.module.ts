@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { DrillDownComponent } from './components/drill-down/drill-down.component';
 import { MatCardModule } from '@angular/material/card';
-import {FlexModule} from "@angular/flex-layout"; // Import Angular Material card module
+import {FlexModule} from "@angular/flex-layout";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -17,10 +18,10 @@ import {FlexModule} from "@angular/flex-layout"; // Import Angular Material card
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule, // Include AppRoutingModule here
+    AppRoutingModule,
     MatCardModule,
     FlexModule,
-    // Include Angular Material module
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
