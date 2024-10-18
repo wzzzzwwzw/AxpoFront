@@ -11,7 +11,7 @@
         <mat-card-title>{{ circle.name }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>Members: {{ circle.members?.length || 0 }}</p> <!-- Safe access with optional chaining -->
+        <p>Members: {{ circle.members.$values.length || 0 }}</p> <!-- Accessing length from $values -->
       </mat-card-content>
     </mat-card>
   </div>

@@ -18,12 +18,10 @@
   <div *ngIf="imbalances.length > 0; else noImbalances">
     <mat-card *ngFor="let imbalance of imbalances" class="imbalance-card">
       <mat-card-header>
-        <mat-card-title>Imbalance ID: {{ imbalance.id }}</mat-card-title>
+        <mat-card-title>Imbalance on {{ imbalance.date }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>Details: {{ imbalance.details }}</p>
-        <p>Severity: {{ imbalance.severity }}</p>
-        <p>Status: {{ imbalance.status }}</p>
+        <p>Amount: {{ imbalance.amount }}</p>
       </mat-card-content>
     </mat-card>
   </div>

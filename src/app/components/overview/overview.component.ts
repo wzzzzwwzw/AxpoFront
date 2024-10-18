@@ -34,6 +34,8 @@ export class OverviewComponent implements OnInit {
 
 
   navigateToDrillDown(circleId: number): void {
-    this.router.navigate(['/drill-down', circleId]);
-  }
+    this.router.navigate(['/drill-down', circleId]).then(
+      () => console.log('Navigation successful'),
+      (error) => console.error('Navigation error', error)
+    );  }
 }

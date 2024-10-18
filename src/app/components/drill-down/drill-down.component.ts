@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BalancingService } from '../../services/balancing.service';
 import { Forecast } from '../../models/Forecast';
 import { BalancingCircle } from '../../models/BalancingCircle';
+import { Member } from '../../models/Member'; // Import the Member interface
 
 @Component({
   selector: 'app-drill-down',
@@ -12,7 +13,7 @@ import { BalancingCircle } from '../../models/BalancingCircle';
 export class DrillDownComponent implements OnInit {
   balancingCircleId!: number;
   memberForecasts: { memberName: string; forecasts: Forecast[] }[] = [];
-  imbalances: any[] = []; // Store fetched imbalances
+  imbalances: any[] = []; // Ensure this is an array
 
   constructor(private route: ActivatedRoute, private balancingService: BalancingService) {}
 
@@ -28,7 +29,7 @@ export class DrillDownComponent implements OnInit {
         const selectedCircle = circles.find(circle => circle.id === this.balancingCircleId);
 
         if (selectedCircle) {
-          const members = selectedCircle.members || [];
+          const members = selectedCircle.members || []; // Use members directly
 
           if (Array.isArray(members)) {
             const memberRequests = members.map(member =>
@@ -64,7 +65,15 @@ export class DrillDownComponent implements OnInit {
     this.balancingService.getImbalances(this.balancingCircleId).subscribe({
       next: (imbalances) => {
         console.log('Imbalances fetched:', imbalances);
-        this.imbalances = imbalances; // Store imbalances
+        // Assuming the response is an object, we will convert it to an array of key-value pairs
+        if (imbalances && typeof imbalances === 'object') {
+          this.imbalances = Object.entries(imbalances).map(([key, value]) => ({
+            date: key,
+            amount: value
+          }));
+        } else {
+          this.imbalances = []; // Set to an empty array if not an object
+        }
       },
       error: (error) => {
         console.error('Error fetching imbalances:', error);
