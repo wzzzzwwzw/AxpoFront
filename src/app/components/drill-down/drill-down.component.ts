@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { BalancingService } from '../../services/balancing.service';
 import { Forecast } from '../../models/Forecast';
 import { BalancingCircle } from '../../models/BalancingCircle';
-import { Member } from '../../models/Member'; // Import the Member interface
 
 @Component({
   selector: 'app-drill-down',
@@ -15,7 +14,7 @@ export class DrillDownComponent implements OnInit {
   memberForecasts: { memberName: string; forecasts: Forecast[] }[] = [];
   imbalances: any[] = []; // Ensure this is an array
 
-  constructor(private route: ActivatedRoute, private balancingService: BalancingService) {}
+  constructor(private route: ActivatedRoute, private balancingService: BalancingService,private router: Router) {}
 
   ngOnInit(): void {
     this.balancingCircleId = Number(this.route.snapshot.paramMap.get('id'));
@@ -79,5 +78,9 @@ export class DrillDownComponent implements OnInit {
         console.error('Error fetching imbalances:', error);
       }
     });
+  }
+
+  navigateToOverview(): void {
+    this.router.navigate(['/overview']); // Assuming 'overview' is the correct route
   }
 }
