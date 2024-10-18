@@ -1,27 +1,45 @@
-# EnergyBalance
+# Energy Market Balancing - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+## Overview
 
-## Development server
+The **Energy Market Balancing** frontend application is designed to visualize balancing circles, their members, and forecasted inflows and outflows in the energy market. Built with Angular, it provides a user-friendly interface for calculating and displaying energy imbalances.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Context
 
-## Code scaffolding
+The frontend serves as the interface for users to interact with the energy market balancing data. By displaying the total inflows and outflows for each balancing circle, users can easily visualize energy production and consumption. The application enables users to drill down into member-level details and monitor imbalances, which is critical for maintaining grid stability.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Imbalance(t) = Inflows(t) - Outflows(t)**
 
-## Build
+- **Inflows**: Forecasted energy produced by sources like solar farms and wind parks.
+- **Outflows**: Forecasted energy consumed by clients or industrial entities.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The goal of the frontend is to provide insights into the energy balancing process, assisting users in managing imbalances effectively.
 
-## Running unit tests
+## Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Display a list of balancing circles and their associated members.
+- Show detailed member-level forecasts and imbalance data.
+- Responsive design for optimal viewing on various devices.
+- Integration with the backend API for real-time data fetching.
 
-## Running end-to-end tests
+## Getting Started
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Prerequisites
 
-## Further help
+Before you begin, ensure you have the following installed on your machine:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Node.js (14.x or later)
+- Angular CLI (latest version)
+
+### Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone [https://github.com/yourusername/energy-market-balancing-frontend.git]
+   cd energy-market-balancing-frontend
+
+![details](https://github.com/user-attachments/assets/48816e6a-ff66-4f35-8f14-87ccc993e065)
+
+![overview](https://github.com/user-attachments/assets/0da26798-9399-433e-a6f0-20e364fbb3b6)
+
