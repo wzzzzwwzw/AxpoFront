@@ -1,0 +1,29 @@
+/* Overview Component Styles */
+.overview-container {
+  padding: 20px;
+}
+
+.circle-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.circle-card:hover {
+  transform: scale(1.02); /* Scale effect on hover */
+}
+
+.circle-card mat-card {
+  background-color: #ffffff; /* White card background */
+}
+
+.circle-card mat-card-header {
+  background-color: #007bff; /* Blue header */
+  color: #ffffff; /* White text */
+}
+
+/* Style for loading message */
+.loading-message {
+  text-align: center;
+  font-size: 20px;
+  color: #007bff; /* Blue loading text */
+}

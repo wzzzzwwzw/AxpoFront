@@ -1,0 +1,20 @@
+/* Drill Down Component Styles */
+.drill-down-container {
+  padding: 20px;
+}
+
+.member-forecast-card {
+  margin-bottom: 20px;
+}
+
+.imbalance-card {
+  background-color: #ffeeba; /* Light yellow for imbalance cards */
+  border-left: 5px solid #ffc107; /* Yellow accent */
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .drill-down-container, .overview-container {
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+}
