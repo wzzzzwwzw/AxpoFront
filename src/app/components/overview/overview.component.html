@@ -5,7 +5,7 @@
     <p>Loading balancing circles...</p>
   </div>
 
-  <div *ngFor="let circle of balancingCircles" class="circle-card" (click)="navigateToDrillDown(circle.id)">
+  <div (click)="navigateToDrillDown(circle.id)" *ngFor="let circle of balancingCircles" class="circle-card">
     <mat-card>
       <mat-card-header>
         <mat-card-title>{{ circle.name }}</mat-card-title>

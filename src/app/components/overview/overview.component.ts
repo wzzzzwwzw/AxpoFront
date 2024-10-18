@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { BalancingService } from '../../services/balancing.service';
-import { BalancingCircle } from '../../models/BalancingCircle';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {BalancingService} from '../../services/balancing.service';
+import {BalancingCircle} from '../../models/BalancingCircle';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-overview',
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class OverviewComponent implements OnInit {
   balancingCircles: BalancingCircle[] = [];
 
-  constructor(private balancingService: BalancingService, private router: Router) {}
+  constructor(private balancingService: BalancingService, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.loadBalancingCircles();
@@ -37,5 +38,6 @@ export class OverviewComponent implements OnInit {
     this.router.navigate(['/drill-down', circleId]).then(
       () => console.log('Navigation successful'),
       (error) => console.error('Navigation error', error)
-    );  }
+    );
+  }
 }

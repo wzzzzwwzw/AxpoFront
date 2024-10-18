@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DrillDownComponent } from './drill-down.component';
+import {DrillDownComponent} from './drill-down.component';
 
 describe('DrillDownComponent', () => {
   let component: DrillDownComponent;

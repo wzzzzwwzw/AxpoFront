@@ -1,6 +1,6 @@
 <div class="drill-down-container" fxLayout="column" fxLayoutAlign="center center">
   <h1>Balancing Circle Details</h1>
-  <button mat-button (click)="navigateToOverview()">Back to Overview</button>
+  <button (click)="navigateToOverview()" mat-button>Back to Overview</button>
 
   <div *ngFor="let memberForecast of memberForecasts" class="member-forecast-card">
     <mat-card>
