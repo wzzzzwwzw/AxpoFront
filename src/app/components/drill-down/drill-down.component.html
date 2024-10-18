@@ -1,0 +1,33 @@
+<div class="drill-down-container" fxLayout="column" fxLayoutAlign="center center">
+  <h1>Balancing Circle Details</h1>
+
+  <div *ngFor="let memberForecast of memberForecasts" class="member-forecast-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ memberForecast.memberName }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngFor="let forecast of memberForecast.forecasts">
+          <p>{{ forecast.date }}: {{ forecast.forecast }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <h2>Imbalances</h2>
+  <div *ngIf="imbalances.length > 0; else noImbalances">
+    <mat-card *ngFor="let imbalance of imbalances" class="imbalance-card">
+      <mat-card-header>
+        <mat-card-title>Imbalance ID: {{ imbalance.id }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Details: {{ imbalance.details }}</p>
+        <p>Severity: {{ imbalance.severity }}</p>
+        <p>Status: {{ imbalance.status }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <ng-template #noImbalances>
+    <p>No imbalances found for this balancing circle.</p>
+  </ng-template>
+</div>

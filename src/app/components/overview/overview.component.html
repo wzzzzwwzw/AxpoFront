@@ -1,0 +1,18 @@
+<div class="overview-container" fxLayout="column" fxLayoutAlign="center center">
+  <h1>Balancing Circles Overview</h1>
+
+  <div *ngIf="balancingCircles.length === 0">
+    <p>Loading balancing circles...</p>
+  </div>
+
+  <div *ngFor="let circle of balancingCircles" class="circle-card" (click)="navigateToDrillDown(circle.id)">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ circle.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Members: {{ circle.members?.length || 0 }}</p> <!-- Safe access with optional chaining -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
