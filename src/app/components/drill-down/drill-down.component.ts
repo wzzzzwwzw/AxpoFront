@@ -81,6 +81,18 @@ export class DrillDownComponent implements OnInit {
   }
 
   navigateToOverview(): void {
-    this.router.navigate(['/overview']);
+    this.router.navigate(['/overview'])
+      .then(success => {
+        if (success) {
+          console.log('Navigation successful!');
+        } else {
+          console.log('Navigation failed!');
+        }
+      })
+      .catch(error => {
+        console.error('Navigation error:', error);
+      });
   }
+
+
 }
